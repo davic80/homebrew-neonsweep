@@ -4,12 +4,19 @@ cask "neonsweep" do
 
   url "https://github.com/davic80/neonsweep/releases/download/v#{version}/NeonSweep-v#{version}.dmg"
   name "NeonSweep"
-  desc "Retro neon-terminal Mac cleaner — free, open source, no telemetry"
+  desc "Retro neon-terminal cleaner — free, open source, no telemetry"
   homepage "https://github.com/davic80/neonsweep"
 
   auto_updates false
+  depends_on :macos
 
   app "NeonSweep.app"
+
+  zap trash: [
+    "~/Library/Application Support/NeonSweep",
+    "~/Library/Logs/NeonSweep.log",
+    "~/Library/Preferences/com.davidcornejo.neonsweep.plist",
+  ]
 
   caveats do
     <<~EOS
@@ -19,10 +26,4 @@ cask "neonsweep" do
         xattr -dr com.apple.quarantine /Applications/NeonSweep.app
     EOS
   end
-
-  zap trash: [
-    "~/Library/Application Support/NeonSweep",
-    "~/Library/Logs/NeonSweep.log",
-    "~/Library/Preferences/com.davidcornejo.neonsweep.plist",
-  ]
 end
