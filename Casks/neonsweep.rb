@@ -1,6 +1,6 @@
 cask "neonsweep" do
-  version "0.7.1"
-  sha256 "96f26efabc155b017e1ed69ac347cad1d9982a80afdb306bb258488f09038e55"
+  version "0.7.2"
+  sha256 "c61251f47330e055e3314fddd78141c5aeef59e02538e16108e1f2f9f519ad10"
 
   url "https://github.com/davic80/neonsweep/releases/download/v#{version}/NeonSweep-v#{version}.dmg"
   name "NeonSweep"
