@@ -18,12 +18,16 @@ cask "neonsweep" do
     "~/Library/Preferences/com.davidcornejo.neonsweep.plist",
   ]
 
-  caveats do
-    <<~EOS
-      NeonSweep is signed ad-hoc (not yet notarized). If macOS blocks it on
-      first launch, right-click NeonSweep.app in /Applications and choose
-      "Open", or run:
-        xattr -dr com.apple.quarantine /Applications/NeonSweep.app
-    EOS
-  end
+  caveats <<~EOS
+    NeonSweep is open source and signed ad-hoc (not notarized), so on first
+    launch macOS will say it "cannot be opened". This is expected. To allow it:
+
+    EN  Open System Settings > Privacy & Security, scroll to the bottom, and
+        next to the NeonSweep message click "Open Anyway", then confirm.
+    ES  Abre Ajustes del Sistema > Privacidad y seguridad, baja del todo y,
+        junto al mensaje de NeonSweep, pulsa "Abrir igualmente" y confirma.
+
+    You only do this once. Or, from Terminal:
+      xattr -dr com.apple.quarantine /Applications/NeonSweep.app
+  EOS
 end
